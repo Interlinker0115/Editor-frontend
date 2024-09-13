@@ -12,19 +12,20 @@ const Testmonial = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     // const carouselWidth = 1000
     const [carouselWidth, setCarouselWidth] = useState("1200px");
+    const width = window.innerWidth
 
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth <= 600) {
-                const wth = window.innerWidth - 24;
+            if (width <= 600) {
+                const wth = width - 24;
                 setCarouselWidth(wth.toString() + "px");
-            } else if (window.innerWidth <= 768) {
+            } else if (width <= 768) {
                 setCarouselWidth("510px");
-            } else if (window.innerWidth <= 900) {
+            } else if (width <= 900) {
                 setCarouselWidth("680px");
-            } else if (window.innerWidth <= 1150) {
+            } else if (width <= 1150) {
                 setCarouselWidth("780px");
-            } else if (window.innerWidth <= 1440) {
+            } else if (width <= 1440) {
                 setCarouselWidth("1000px");
             } else {
                 setCarouselWidth("1200px");
@@ -38,7 +39,7 @@ const Testmonial = () => {
         return () => {
             window.removeEventListener("resize", handleResize);
         };
-    }, [window.innerWidth]);
+    }, [width]);
 
 
     const handleChange = (curIndex) => {
