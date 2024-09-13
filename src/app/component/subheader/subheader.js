@@ -17,7 +17,7 @@ const SubHeader = () => {
         }
     }
     useEffect(() => {
-        setAnimation(!animation)
+        setAnimation(prevAnimation => !prevAnimation)
     }, [show])
     return (
         <div className="top-0 w-full  ">
