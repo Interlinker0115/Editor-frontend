@@ -17,7 +17,7 @@ const Header = () => {
         }
     }
     useEffect(() => {
-        setAnimation(prevAnimation => !prevAnimation)
+        setAnimation(animation => !animation)
     }, [show])
     return (
         <div className="top-0 w-full  ">
