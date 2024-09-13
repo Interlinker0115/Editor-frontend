@@ -53,7 +53,7 @@ const Benefit = () => {
                             }}
                         />
                         <div className="mt-[15px] text-black text-[18px] font-bold">User-Friendly Interface</div>
-                        <div className="mt-[15px] text-[#4F4F4F] text-[14px] font-bold text-wrap">Navigate our intuitive interface with ease. Whether you're a seasoned writer or a beginner, our user-friendly design ensures a seamless editing experience that enhances productivity.</div>
+                        <div className="mt-[15px] text-[#4F4F4F] text-[14px] font-bold text-wrap">Navigate our intuitive interface with ease. Whether you are a seasoned writer or a beginner, our user-friendly design ensures a seamless editing experience that enhances productivity.</div>
                     </div>
                 </div>
                 <div className="w-[100%] h-auto flex flex-col border-black border-solid border rounded-[12px] ">
@@ -69,7 +69,7 @@ const Benefit = () => {
                             }}
                         />
                         <div className="mt-[15px] text-black text-[18px] font-bold">Subscription Plans for Every Need</div>
-                        <div className="mt-[2px] text-[#4F4F4F] text-[14px] font-bold text-wrap">Select from flexible subscription plans designed for your writing needs. Whether you're a casual user or a professional writer, we have a suitable plan for you, with extra features available at each level.</div>
+                        <div className="mt-[2px] text-[#4F4F4F] text-[14px] font-bold text-wrap">Select from flexible subscription plans designed for your writing needs. Whether you are a casual user or a professional writer, we have a suitable plan for you, with extra features available at each level.</div>
                     </div>
                 </div>
                 <div className="w-[100%] h-auto flex flex-col border-black border-solid border rounded-[12px]">
