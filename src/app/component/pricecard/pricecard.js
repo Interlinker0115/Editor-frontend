@@ -2,7 +2,7 @@
 import Button from "@mui/material/Button"
 import { useRouter } from "next/navigation"
 
-const PriceCard = () => {
+const PriceCard = ({ user }) => {
     const router = useRouter();
     return (
         <div className="w-full mt-12 xl:mt-[41px] mb-[50px] 2xl:px-[145px] md:px-[30px] sm:px-[10px] px-[3px]" id="pricing">
@@ -64,7 +64,7 @@ const PriceCard = () => {
                                     md: "18px",  // Medium screens
                                     lg: "20px"
                                 },
-                            }} onClick={() => router.push("/payment/pay")}>Buy Credits</Button>
+                            }} onClick={() => router.push("/payment/pay")} disabled={!user ? true : false}>Buy Credits</Button>
                         </div>
                     </div>
                 </div>

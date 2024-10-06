@@ -1,7 +1,7 @@
 "use client"
 import Button from "@mui/material/Button"
 import { useEffect, useState } from "react"
-import "./header.css"
+// import "./header.css"
 import { useRouter } from "next/navigation"
 const SubHeader = () => {
     const router = useRouter();
@@ -17,10 +17,10 @@ const SubHeader = () => {
         }
     }
     useEffect(() => {
-        setAnimation(prevAnimation => !prevAnimation)
+        setAnimation(!animation)
     }, [show])
     return (
-        <div className="top-0 w-full  ">
+        <div className="top-0 w-full">
             <div className="flex relative bg-black items-center justify-between h-[80px] xl:px-[145px] lg:px-[50px] md:px-[40px] sm:px-[30px] px-[10px]">
                 <div className="w-[117px] h-[50px] border-white border-[1px] border-solid text-white items-center justify-center">Logo</div>
 

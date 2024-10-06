@@ -3,13 +3,17 @@ import Button from "@mui/material/Button"
 import { useEffect, useState } from "react"
 import "./header.css"
 import { useRouter } from "next/navigation"
+import { useAuth, UserButton } from '@clerk/nextjs'
 const Header = () => {
     const router = useRouter();
     const [show, setShow] = useState(false)
     const [animation, setAnimation] = useState(true)
+    const { isSignedIn } = useAuth();
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
     window.onclick = function (e) {
         const id = document.getElementById("modal")
         if (id === e.target) {
@@ -17,14 +21,12 @@ const Header = () => {
         }
     }
     useEffect(() => {
-        setAnimation(animation => !animation)
+        setAnimation(!animation)
     }, [show])
     return (
         <div className="top-0 w-full  ">
             <div className="flex relative bg-black items-center justify-between h-[80px] xl:px-[145px] lg:px-[50px] md:px-[40px] sm:px-[30px] px-[10px]">
                 <div className="w-[117px] h-[50px] border-white border-[1px] border-solid text-white items-center justify-center">Logo</div>
-
-
                 <div className="hidden lg:block">
                     <div className="flex gap-16">
                         <a href="/#innovation" className="text-white font-bold text-[18px] hover:text-[#0D6EFD] hover: cursor-pointer">Home</a>
@@ -34,7 +36,46 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="hidden lg:block">
-                    <Button variant="contained" sx={{ borderRadius: "100px", backgroundColor: "#0D6EFD", color: "white", width: "154px", height: "54px" }} onClick={() => router.push("/signin")}>Sign In</Button>
+                    {!isSignedIn ? (
+                        <Button
+                            variant="contained"
+                            sx={{ borderRadius: "100px", backgroundColor: "#0D6EFD", color: "white", width: "154px", height: "54px" }}
+                            onClick={() => router.push("/sign-in")}
+                        >
+                            Sign In
+                        </Button>
+                    ) : (
+                        <div className="flex justify-center items-center">
+                            <UserButton
+                                afterSignUpUrl="/sign-in"
+                                appearance={{
+                                    elements: {
+                                        userButtonAvatarBox: {
+                                            width: '45px',
+                                            height: '45px',
+                                        },
+                                    }
+                                }}
+                            />
+                        </div>
+                    )}
+
+
+
+                    {/* <Button variant="contained" sx={{ borderRadius: "100px", backgroundColor: "#0D6EFD", color: "white", width: "154px", height: "54px" }} onClick={() => router.push("/signin")}>Sign In</Button>
+                </div>
+                <div className="rounded-full flex justify-center items-center">
+                    <UserButton
+                        afterSignUpUrl="/sign-in"
+                        appearance={{
+                            elements: {
+                                userButtonAvatarBox: {
+                                    width: '60px', // Makes it scale with parent div
+                                    height: '60px', // Makes it scale with parent div
+                                },
+                            }
+                        }}
+                    /> */}
                 </div>
                 <div className="block lg:hidden text-white text-[30px] font-bold" onClick={() => setShow(!show)}>
                     {show ? "X" : "☰"}
@@ -63,13 +104,13 @@ const Header = () => {
 
                             <div
                                 className="hover:cursor-pointer"
-                                onClick={() => router.push("/login")}
+                                onClick={() => router.push("/sign-in")}
                             >
                                 Sign In
                             </div>
                             <div
                                 className="hover:cursor-pointer"
-                                onClick={() => router.push("/signup")}
+                                onClick={() => router.push("/sign-up")}
                             >
                                 Sing Up
                             </div>

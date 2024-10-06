@@ -6,8 +6,8 @@ const Confirm = () => {
     const router = useRouter();
     return (
         <div className="flex flex-col justify-center items-center">
-            <p className="p-2 text-[#FF8A00] text-[12px] sm:text-[14px] md:text-[18px] tracking-wider text-center uppercase">- UPLOAD DOCUMENT -</p>
-            <h2 className="mb-7 font-bold leading-none text-center text-[30px] sm:text-[32px] md:text-[36px]">Purchase Credits</h2>
+            <p className="mt-0 sm:mt-[10px] md:mt-[30px] p-2 text-[#FF8A00] text-[12px] sm:text-[14px] md:text-[18px] tracking-wider text-center uppercase">- UPLOAD DOCUMENT -</p>
+            <h2 className="mt-0 sm:mt-[10px] md:mt-[30px] mb-7 font-bold leading-none text-center text-[30px] sm:text-[32px] md:text-[36px]">Purchase Credits</h2>
             <div className="w-[85%] xl:w-[80%] px-[10px] sm:px-[12px] xl:px-[20px] bg-[#0D6EFD] bg-opacity-15  rounded-[14px] mb-[20px]">
                 <div className="flex justify-between mt-[20px]">
                     <div>

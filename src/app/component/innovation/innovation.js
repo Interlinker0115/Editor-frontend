@@ -39,7 +39,7 @@ const Innovation = () => {
                             xl: "18px",  // Extra large screens
                         },
                     }} onClick={() => {
-                        router.push("/signup");
+                        router.push("/sign-up");
                     }}>Sign Up</Button>
                     <Button variant="contained" sx={{
                         borderRadius: "100px", backgroundColor: "#0D6EFD", color: "white",
@@ -61,7 +61,7 @@ const Innovation = () => {
                             md: "16px",  // Medium screens
                             xl: "18px",  // Extra large screens
                         },
-                    }} onClick={() => router.push("/signin")}>start for free</Button>
+                    }} onClick={() => router.push("/sign-in")}>start for free</Button>
                 </div>
             </div>
             <div className="mt-[74px] hidden md:block">

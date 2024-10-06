@@ -25,23 +25,7 @@ const Step = () => {
                     />
                     <div className="mt-[10px] text-[24px] font-bold text-black">upload Your Document</div>
                     <div className="block xl:hidden mt-[20px]">
-                        <Button variant="contained" sx={{
-                            borderRadius: "100px", backgroundColor: "#0D6EFD", color: "white",
-                            width: {
-                                xs: "150px",
-                                sm: "180px",
-                                md: "220px",
-                            }, height: {
-                                xs: "44px",
-                                sm: "48px",
-                                md: "54px",
-                            },
-                            fontSize: {
-                                xs: "14px",
-                                sm: "16px",  // Small screens
-                                md: "18px",  // Medium screens
-                            },
-                        }}>Step1</Button>
+                        <div className="rounded-full bg-[#0D6EFD] text-white font-bold w-[150px] sm:w-[180px] md:w-[220px] h-[44px] sm:h-[48px] md:h-[54px] text-[16px] sm:text-[18px] md:text-[20px] flex justify-center items-center z-20">step1</div>
                     </div>
                 </div>
                 <div className="flex flex-col items-center w-full text-center">
@@ -57,23 +41,7 @@ const Step = () => {
                     />
                     <div className="mt-[10px] text-[24px] font-bold text-black">Automatic Scan</div>
                     <div className="block xl:hidden mt-[20px]">
-                        <Button variant="contained" sx={{
-                            borderRadius: "100px", backgroundColor: "#0D6EFD", color: "white",
-                            width: {
-                                xs: "150px",
-                                sm: "180px",
-                                md: "220px",
-                            }, height: {
-                                xs: "44px",
-                                sm: "48px",
-                                md: "54px",
-                            },
-                            fontSize: {
-                                xs: "14px",
-                                sm: "16px",  // Small screens
-                                md: "18px",  // Medium screens
-                            },
-                        }}>Step2</Button>
+                        <div className="rounded-full bg-[#0D6EFD] text-white font-bold w-[150px] sm:w-[180px] md:w-[220px] h-[44px] sm:h-[48px] md:h-[54px] text-[16px] sm:text-[18px] md:text-[20px] flex justify-center items-center z-20">step2</div>
                     </div>
                 </div>
                 <div className="flex flex-col items-center w-full text-center">
@@ -89,23 +57,7 @@ const Step = () => {
                     />
                     <div className="mt-[10px] text-[24px] font-bold text-black">Check and Save</div>
                     <div className="block xl:hidden mt-[20px]">
-                        <Button variant="contained" sx={{
-                            borderRadius: "100px", backgroundColor: "#0D6EFD", color: "white",
-                            width: {
-                                xs: "150px",
-                                sm: "180px",
-                                md: "220px",
-                            }, height: {
-                                xs: "44px",
-                                sm: "48px",
-                                md: "54px",
-                            },
-                            fontSize: {
-                                xs: "14px",
-                                sm: "16px",  // Small screens
-                                md: "18px",  // Medium screens
-                            },
-                        }}>Step3</Button>
+                        <div className="rounded-full bg-[#0D6EFD] text-white font-bold w-[150px] sm:w-[180px] md:w-[220px] h-[44px] sm:h-[48px] md:h-[54px] text-[16px] sm:text-[18px] md:text-[20px] flex justify-center items-center z-20">step3</div>
                     </div>
                 </div>
             </div>
@@ -120,9 +72,9 @@ const Step = () => {
                             className="w-[850px]"
                         />
                     </div>
-                    <Button variant="contained" sx={{ borderRadius: "100px", backgroundColor: "#0D6EFD", color: "white", width: "220px", height: "68px", fontSize: "24px", }}>Step1</Button>
-                    <Button variant="contained" sx={{ borderRadius: "100px", backgroundColor: "#0D6EFD", color: "white", width: "220px", height: "68px", fontSize: "24px", }}>Step2</Button>
-                    <Button variant="contained" sx={{ borderRadius: "100px", backgroundColor: "#0D6EFD", color: "white", width: "220px", height: "68px", fontSize: "24px", }}>Step3</Button>
+                    <div className="rounded-full bg-[#0D6EFD] text-white font-bold w-[150px] sm:w-[180px] md:w-[220px] h-[44px] sm:h-[48px] md:h-[54px] text-[16px] sm:text-[18px] md:text-[20px] flex justify-center items-center z-20">step1</div>
+                    <div className="rounded-full bg-[#0D6EFD] text-white font-bold w-[150px] sm:w-[180px] md:w-[220px] h-[44px] sm:h-[48px] md:h-[54px] text-[16px] sm:text-[18px] md:text-[20px] flex justify-center items-center z-20">step2</div>
+                    <div className="rounded-full bg-[#0D6EFD] text-white font-bold w-[150px] sm:w-[180px] md:w-[220px] h-[44px] sm:h-[48px] md:h-[54px] text-[16px] sm:text-[18px] md:text-[20px] flex justify-center items-center z-20">step3</div>
                 </div>
             </div>
         </div>
