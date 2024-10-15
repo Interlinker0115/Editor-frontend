@@ -16,7 +16,6 @@ const Upload = () => {
     const [editView, setEditView] = useAtom(EditViewAtom)
     const [, setLogicCheck] = useAtom(logicCheckAtom)
 
-
     const handleChange = (e) => {
         const file = e.target.files[0];
         if (file) {
@@ -45,7 +44,7 @@ const Upload = () => {
         const formData = new FormData();
         formData.append("file", files[0]); // Append the first file to the form data
         try {
-            const response = await axios.post("https://ce4f-88-99-162-157.ngrok-free.app/filetohtml", formData, {
+            const response = await axios.post("https://ebc1-88-99-162-157.ngrok-free.app/filetohtml", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                     "ngrok-skip-browser-warning": "true"
@@ -54,7 +53,7 @@ const Upload = () => {
             });
             console.log("response data =>", response.data)
             const url = response.data;
-            // setUrl(response.data)
+            console.log(url, "----------------url")
             localStorage.setItem("url", url)
             const type = typeof (response)
             console.log(type, "--->response type")
@@ -62,13 +61,12 @@ const Upload = () => {
             const link = localStorage.getItem("url")
             console.log(link)
 
-            const html = await axios.get(` https://ce4f-88-99-162-157.ngrok-free.app/iframehtml`, {
+            const html = await axios.get(`https://ebc1-88-99-162-157.ngrok-free.app/iframehtml`, {
                 params: { link },
                 headers: {
                     "Content-Type": "multipart/form-data",
                     "ngrok-skip-browser-warning": "true"
                 },
-                // responseType: "text"
             })
             const parser = new DOMParser();
             const doc = parser.parseFromString(html.data, 'text/html');
@@ -79,7 +77,7 @@ const Upload = () => {
             const length = MainData
             console.log(length, "-------ltngth")
 
-            const analyResponse = await axios.post("https://ce4f-88-99-162-157.ngrok-free.app/documentCheck ", { "content": MainData },
+            const analyResponse = await axios.post("https://ebc1-88-99-162-157.ngrok-free.app/documentCheck ", { "content": MainData },
                 {
                     headers: {
                         "Content-Type": "application/json",

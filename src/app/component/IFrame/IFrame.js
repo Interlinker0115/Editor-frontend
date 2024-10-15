@@ -3,7 +3,7 @@ import axios from "axios";
 import { useAtom } from "jotai";
 import React, { useEffect, useRef, useState } from "react";
 
-const IFrame = ({ setEditorContent, changedContent, setSection, editView, setMonograColor, editorContent, setIsLoaded, isLoaded, changedDivElements }) => {
+const IFrame = ({ setEditorContent, changedContent, setSection, editView, setMonograColor, editorContent, setIsLoaded, isLoaded, changedDivElements, changeState, setChangeState }) => {
   const link = localStorage.getItem("url")
   const [htmlData, setHtmlData] = useAtom(htmlDataAtom);
   const [editElement, setEditElement] = useState();
@@ -12,7 +12,7 @@ const IFrame = ({ setEditorContent, changedContent, setSection, editView, setMon
 
   useEffect(() => {
     const fetch = async () => {
-      const res = await axios.get(` https://ce4f-88-99-162-157.ngrok-free.app/iframehtml`, {
+      const res = await axios.get(`https://ebc1-88-99-162-157.ngrok-free.app/iframehtml`, {
         params: { link },
         headers: {
           "Content-Type": "multipart/form-data",
@@ -103,14 +103,21 @@ const IFrame = ({ setEditorContent, changedContent, setSection, editView, setMon
   const handleMouseOver = (event) => {
     var hoveredElement = event.target;
     if (hoveredElement.tagName === 'TD' || hoveredElement.tagName === 'TH') {
-      hoveredElement = hoveredElement.parentElement.parentElement.parentElement;
+      // hoveredElement = hoveredElement.parentElement.parentElement.parentElement;
+      hoveredElement = hoveredElement.closest('table');
     }
     const tagNames = ['HTML', 'P', 'SPAN', 'FIGURE', 'IMG', 'UL', 'SVG', 'SUP', 'BODY', "SECTION"];
     const ids = ['preview-content', 'preview', 'container-ruller'];
-    if (tagNames.includes(hoveredElement.tagName) || ids.includes(hoveredElement.id) || hoveredElement.tagName.includes('MJX')) {
-    } else {
+    // if (tagNames.includes(hoveredElement.tagName) || ids.includes(hoveredElement.id) || hoveredElement.tagName.includes('MJX')) {
+    // } else {
+    //   hoveredElement.style.cursor = "pointer";
+    //   if (!hoveredElement.style) return;
+    //   if (hoveredElement.style.background !== 'rgb(220, 252, 231)') {
+    //     hoveredElement.style.background = "#bae6fd";
+    //   }
+    // }
+    if (!tagNames.includes(hoveredElement.tagName) && !ids.includes(hoveredElement.id) && !hoveredElement.tagName.includes('MJX')) {
       hoveredElement.style.cursor = "pointer";
-      if (!hoveredElement.style) return;
       if (hoveredElement.style.background !== 'rgb(220, 252, 231)') {
         hoveredElement.style.background = "#bae6fd";
       }
@@ -120,7 +127,8 @@ const IFrame = ({ setEditorContent, changedContent, setSection, editView, setMon
   const handleMouseOut = (event) => {
     var leftElement = event.target;
     if (leftElement.tagName === 'TD' || leftElement.tagName === 'TH') {
-      leftElement = leftElement.parentElement.parentElement.parentElement;
+      // leftElement = leftElement.parentElement.parentElement.parentElement;
+      leftElement = leftElement.closest('table');
     }
     const tagNames = ['HTML', 'P', 'SPAN', 'FIGURE', 'IMG', 'UL', 'SVG', 'SUP', 'BODY', "SECTION"];
     const ids = ['preview-content', 'preview', 'container-ruller'];
@@ -189,13 +197,30 @@ const IFrame = ({ setEditorContent, changedContent, setSection, editView, setMon
 
 
   useEffect(() => {
-    console.log("editElement", editElement, typeof editElement);
-    if (!editElement) return;
-    console.log("editElement => " + editElement);
-    console.log("changedContent => " + changedContent);
-    const emptyEditElement = editElement.innerHTML;
-    let tmp = htmlData;
-    if (tmp) setHtmlData(tmp.replace(emptyEditElement, changedContent));
+    const fetch = async () => {
+      console.log("editElement", editElement, typeof editElement);
+      if (!editElement) return;
+      // console.log("editElement => " + editElement);
+      // console.log("changedContent => " + changedContent, typeof (changedContent));
+      let emptyEditElement = editElement.innerHTML;
+
+      let tmp = htmlData;
+      // console.log(typeof tmp)
+      // console.log(tmp.includes(emptyEditElement), "---------");
+      if (changeState === true) {
+        // console.log(changedContent, "------changedcontent")
+        // if (oristring === emptyEditElement) console.log("True")
+        console.log(emptyEditElement)
+        emptyEditElement = emptyEditElement.replaceAll("<br>", "<br />");
+        // console.log(replacedVal);
+        console.log(emptyEditElement, "-----empty")
+        console.log(tmp.includes(emptyEditElement), "---------true");
+        setHtmlData(tmp.replace(emptyEditElement, changedContent));
+        setChangeState(false)
+
+      }
+    }
+    fetch()
   }, [changedContent])
 
   return (
@@ -204,7 +229,6 @@ const IFrame = ({ setEditorContent, changedContent, setSection, editView, setMon
         id="documentWindow"
         className="text-[16px] w-full overflow-y-scroll overflow-x-hidden h-[70vh]"
         dangerouslySetInnerHTML={{ __html: htmlData }}
-      // ref={iframeRef}
       />
       {/* {changedDivElements} */}
     </>

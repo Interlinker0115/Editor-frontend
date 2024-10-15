@@ -92,8 +92,9 @@ const Testmonial = () => {
                     <Carousel
                         axis="horizontal"
                         width={carouselWidth}
-                        interval={4000}
+                        interval={3000}
                         autoPlay={true}
+                        infiniteLoop={true}
                         showStatus={false}
                         showArrows={true}
                         ref={carousel}

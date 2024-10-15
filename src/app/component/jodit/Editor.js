@@ -8,7 +8,7 @@ const JoditEditor = dynamic(() => import('jodit-react'), { ssr: false })
 // import 'jodit/build/jodit.min.css';
 // import "https://cdnjs.cloudflare.com/ajax/libs/jodit/3.6.5/jodit.min.css"
 
-const Editor = ({ editorContent, setEditorContent, changedContent, setChangedContent, section, setSection }) => {
+const Editor = ({ editorContent, setEditorContent, changedContent, setChangedContent, section, setSection, setChangeState }) => {
   const editor = useRef(null);
   const [isBrowser, setIsBrowser] = useState(false);
   const [model, setModel] = useState('');
@@ -147,6 +147,7 @@ const Editor = ({ editorContent, setEditorContent, changedContent, setChangedCon
               icon: 'greenCheck',
               exec: (editor) => {
                 setChangedContent(editor.value);
+                setChangeState(true)
               }
             },
           ],
@@ -278,7 +279,7 @@ const Editor = ({ editorContent, setEditorContent, changedContent, setChangedCon
     if (editorContent) {
       let content = editorContent.outerHTML;
       if (content && typeof content === 'string') {
-        let contentChange = content.replace("2.5px solid red", "none");
+        let contentChange = content.replace("red", "none");
         setModel(contentChange);
       }
       setChangedContent(editorContent.outerHTML);
@@ -338,7 +339,6 @@ const Editor = ({ editorContent, setEditorContent, changedContent, setChangedCon
                 tabIndex={1}
                 className="w-full"
               />
-
             );
           } catch (error) {
             console.error('Error in JoditEditor', error);

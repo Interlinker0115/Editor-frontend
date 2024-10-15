@@ -12,11 +12,11 @@ const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
 )
 
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['100', '400', '700', '900'], // Changed from "weights" to "weight"
-  display: 'swap'
-});
+// const inter = Inter({
+//   subsets: ['latin'],
+//   weight: ['100', '400', '700', '900'], // Changed from "weights" to "weight"
+//   display: 'swap'
+// });
 
 // export const metadata: Metadata = {
 //   title: "Create Next App",
@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <Elements stripe={stripePromise}>
-        <html lang="en" className={inter.className}>
+        <html lang="en">
           <body>
             <JotaiProvider>
               {children}
