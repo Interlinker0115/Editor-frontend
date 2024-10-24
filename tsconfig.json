@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/page.js", "src/app/api/webhook.js", "src/app/api/subscribe/route.js", "src/app/lib/stripe.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/page.js", "src/app/api/webhook.js", "src/app/api/subscribe/route.js", "src/app/lib/stripe.js", "src/app/lib/dbConnect.js"],
   "exclude": ["node_modules"]
 }

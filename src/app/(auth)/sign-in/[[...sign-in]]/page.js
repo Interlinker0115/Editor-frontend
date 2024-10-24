@@ -9,6 +9,7 @@ export default function Page() {
                         formButtonPrimary: 'button-gradient text-sm normal-case'
                     }
                 }}
+            // fallbackRedirectUrl="/freeupload"
             />
         </div>
     )

@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation"
 import axios from "axios"
 import Loader from "../loader/Loader"
 import { useAtom } from "jotai"
-import { EditViewAtom, logicCheckAtom } from "@/store"
+import { credtiAtom, EditViewAtom, logicCheckAtom } from "@/store"
 
-const Upload = () => {
+const Upload = ({ username }) => {
 
     const router = useRouter();
     const [filename, setFilename] = useState("")
@@ -15,6 +15,7 @@ const Upload = () => {
     const [loaderShow, setLoaderShow] = useState(false)
     const [editView, setEditView] = useAtom(EditViewAtom)
     const [, setLogicCheck] = useAtom(logicCheckAtom)
+    const [credit, setCredit] = useAtom(credtiAtom)
 
     const handleChange = (e) => {
         const file = e.target.files[0];
@@ -35,63 +36,78 @@ const Upload = () => {
     };
 
     const handleConfirm = async (file) => {
-        setLoaderShow(true)
-        if (files.length === 0) {
-            setResponseMessage('No file selected.');
-            return;
-        }
+        if (credit > 0) {
 
-        const formData = new FormData();
-        formData.append("file", files[0]); // Append the first file to the form data
-        try {
-            const response = await axios.post("https://ebc1-88-99-162-157.ngrok-free.app/filetohtml", formData, {
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                    "ngrok-skip-browser-warning": "true"
-                },
-                responseType: "text"
-            });
-            console.log("response data =>", response.data)
-            const url = response.data;
-            console.log(url, "----------------url")
-            localStorage.setItem("url", url)
-            const type = typeof (response)
-            console.log(type, "--->response type")
+            setLoaderShow(true)
+            if (files.length === 0) {
+                setResponseMessage('No file selected.');
+                return;
+            }
 
-            const link = localStorage.getItem("url")
-            console.log(link)
-
-            const html = await axios.get(`https://ebc1-88-99-162-157.ngrok-free.app/iframehtml`, {
-                params: { link },
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                    "ngrok-skip-browser-warning": "true"
-                },
-            })
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html.data, 'text/html');
-            const MainData = doc.body.innerText || doc.body.textContent
-
-            console.log("html======>", MainData)
-            console.log(typeof MainData, "==========htmlData")
-            const length = MainData
-            console.log(length, "-------ltngth")
-
-            const analyResponse = await axios.post("https://ebc1-88-99-162-157.ngrok-free.app/documentCheck ", { "content": MainData },
-                {
+            const formData = new FormData();
+            formData.append("file", files[0]); // Append the first file to the form data
+            try {
+                const response = await axios.post("https://ebc1-88-99-162-157.ngrok-free.app/filetohtml", formData, {
                     headers: {
-                        "Content-Type": "application/json",
+                        "Content-Type": "multipart/form-data",
                         "ngrok-skip-browser-warning": "true"
-                    }
+                    },
+                    responseType: "text"
                 });
-            const analyResult = analyResponse.data;
-            console.log(analyResult, "---AI result")
-            setLogicCheck(analyResult)
-        } catch (error) {
-            console.log(error, "The error is occured")
-        }
+                console.log("response data =>", response.data)
+                const url = response.data;
+                console.log(url, "----------------url")
+                localStorage.setItem("url", url)
+                const type = typeof (response)
+                console.log(type, "--->response type")
 
-        setLoaderShow(false)
+                const link = localStorage.getItem("url")
+                console.log(link)
+
+                const html = await axios.get(`https://ebc1-88-99-162-157.ngrok-free.app/iframehtml`, {
+                    params: { link },
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                        "ngrok-skip-browser-warning": "true"
+                    },
+                })
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html.data, 'text/html');
+                const MainData = doc.body.innerText || doc.body.textContent
+
+                console.log("html======>", MainData)
+                console.log(typeof MainData, "==========htmlData")
+                const length = MainData
+                console.log(length, "-------ltngth")
+
+                const analyResponse = await axios.post("https://ebc1-88-99-162-157.ngrok-free.app/documentCheck ", { "content": MainData },
+                    {
+                        headers: {
+                            "Content-Type": "application/json",
+                            "ngrok-skip-browser-warning": "true"
+                        }
+                    });
+                const analyResult = analyResponse.data;
+                console.log(analyResult, "---AI result")
+                setLogicCheck(analyResult)
+
+            } catch (error) {
+                console.log(error, "The error is occured")
+            }
+            let newCredit = credit - 1;
+            const res = await axios.post("/api/update", {
+                username,
+                newCredit
+            })
+            setLoaderShow(false)
+            // const res = await fetch("/api/update", {
+            //     method: "POST",
+            //     body: JSON.stringify({ username, newCredit })
+            // })
+            setCredit(credit - 1)
+        } else {
+            alert("Your credit is not enough")
+        }
     };
 
     return (

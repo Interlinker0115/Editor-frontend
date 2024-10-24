@@ -1,14 +1,33 @@
 "use client"
 import Button from "@mui/material/Button"
 import { useEffect, useState } from "react"
+import Image from "next/image"
 // import "./header.css"
 import { useRouter } from "next/navigation"
-const SubHeader = () => {
+import { useAtom } from "jotai"
+import { credtiAtom } from "@/store"
+import axios from "axios"
+const SubHeader = async ({ username }) => {
     const router = useRouter();
     const [show, setShow] = useState(false)
     const [animation, setAnimation] = useState(true)
+    const [credit, setCredit] = useAtom(credtiAtom)
+
     useEffect(() => {
         window.scrollTo(0, 0);
+        const fetchData = async () => {
+            try {
+                const res = await fetch(`/api/control?username=${username}`, { method: "GET" }
+                )
+                const data = await res.json();
+                const creditValue = data.credit;
+                setCredit(creditValue)
+
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+        fetchData();
     }, []);
     window.onclick = function (e) {
         const id = document.getElementById("modal")
@@ -22,19 +41,22 @@ const SubHeader = () => {
     return (
         <div className="top-0 w-full">
             <div className="flex relative bg-black items-center justify-between h-[80px] xl:px-[145px] lg:px-[50px] md:px-[40px] sm:px-[30px] px-[10px]">
-                <div className="w-[117px] h-[50px] border-white border-[1px] border-solid text-white items-center justify-center">Logo</div>
-
-
-                <div className="hidden lg:block">
-                    <div className="flex gap-16">
-                        <a href="/#innovation" className="text-white font-bold text-[18px] hover:text-[#0D6EFD] hover:underline">Home</a>
-                        <a href="/#future" className="text-white font-bold text-[18px] hover:text-[#0D6EFD] hover:underline">Features</a>
-                        <a href="/#step" className="text-white font-bold text-[18px] hover:text-[#0D6EFD] hover:underline">How to use</a>
-                        <a href="/#pricing" className="text-white font-bold text-[18px] hover:text-[#0D6EFD] hover:underline">Pricing</a>
+                <a className="flex w-[200px] h-[80px] items-center justify-center" href="/#innovation">
+                    <Image
+                        src={"/doculogo.png"}
+                        width={200}
+                        height={80}
+                        alt="logo"
+                    />
+                </a>
+                <div className="flex justify-center items-center gap-4">
+                    {/* <div className="hidden lg:block">
+                        <Button variant="contained" sx={{ borderRadius: "100px", backgroundColor: "#0D6EFD", color: "white", width: "154px", height: "54px", display: "flex", justifyContent: "center", alignItems: "center", gap: "10px" }}><span className="text-[16px]">credit:</span><span className="text-[24px]">2</span></Button>
+                    </div> */}
+                    <button className="flex justify-center items-center gap-5 bg-[#0D6EFD] rounded-[8px] w-[154px] h-[54px]"><span className="text-[20px] text-white">credit:</span><span className="text-[28px] text-white font-bold">{credit}</span></button>
+                    <div className="hidden lg:block">
+                        <Button variant="contained" sx={{ borderRadius: "100px", backgroundColor: "#0D6EFD", color: "white", width: "154px", height: "54px" }} onClick={() => router.push("/payment/pay")}>buy credit</Button>
                     </div>
-                </div>
-                <div className="hidden lg:block">
-                    <Button variant="contained" sx={{ borderRadius: "100px", backgroundColor: "#0D6EFD", color: "white", width: "154px", height: "54px" }} onClick={() => router.push("/payment/pay")}>buy credit</Button>
                 </div>
                 <div className="block lg:hidden text-white text-[30px] font-bold" onClick={() => setShow(!show)}>
                     {show ? "X" : "☰"}

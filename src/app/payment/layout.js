@@ -1,10 +1,13 @@
-// import Header from "../component/header/header"
 import Footer from "../component/footer/footer"
 import SubHeader from "../component/subheader/subheader"
-const Layout = ({ children }) => {
+import { currentUser } from "@clerk/nextjs/server";
+
+const Layout = async ({ children }) => {
+    const userInfo = await currentUser();
+    const username = userInfo.username;
     return (
         <div className="flex flex-col justify-between h-svh">
-            <SubHeader />
+            <SubHeader username={username} />
             {children}
             <Footer />
         </div>
