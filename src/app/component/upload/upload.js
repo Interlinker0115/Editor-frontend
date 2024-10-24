@@ -47,7 +47,7 @@ const Upload = ({ username }) => {
             const formData = new FormData();
             formData.append("file", files[0]); // Append the first file to the form data
             try {
-                const response = await axios.post("https://ebc1-88-99-162-157.ngrok-free.app/filetohtml", formData, {
+                const response = await axios.post("https://osprey-heroic-eagle.ngrok-free.app/filetohtml", formData, {
                     headers: {
                         "Content-Type": "multipart/form-data",
                         "ngrok-skip-browser-warning": "true"
@@ -64,7 +64,7 @@ const Upload = ({ username }) => {
                 const link = localStorage.getItem("url")
                 console.log(link)
 
-                const html = await axios.get(`https://ebc1-88-99-162-157.ngrok-free.app/iframehtml`, {
+                const html = await axios.get(`https://osprey-heroic-eagle.ngrok-free.app/iframehtml`, {
                     params: { link },
                     headers: {
                         "Content-Type": "multipart/form-data",
@@ -80,7 +80,7 @@ const Upload = ({ username }) => {
                 const length = MainData
                 console.log(length, "-------ltngth")
 
-                const analyResponse = await axios.post("https://ebc1-88-99-162-157.ngrok-free.app/documentCheck ", { "content": MainData },
+                const analyResponse = await axios.post("https://osprey-heroic-eagle.ngrok-free.app/documentCheck ", { "content": MainData },
                     {
                         headers: {
                             "Content-Type": "application/json",

@@ -12,7 +12,7 @@ const IFrame = ({ setEditorContent, changedContent, setSection, editView, setMon
 
   useEffect(() => {
     const fetch = async () => {
-      const res = await axios.get(`https://ebc1-88-99-162-157.ngrok-free.app/iframehtml`, {
+      const res = await axios.get(`https://osprey-heroic-eagle.ngrok-free.app/iframehtml`, {
         params: { link },
         headers: {
           "Content-Type": "multipart/form-data",
