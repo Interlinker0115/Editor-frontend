@@ -210,7 +210,7 @@ const IFrame = ({ setEditorContent, changedContent, setSection, editView, setMon
       if (changeState === true) {
         // console.log(changedContent, "------changedcontent")
         // if (oristring === emptyEditElement) console.log("True")
-        console.log(emptyEditElement)
+        console.log(emptyEditElement, "-------emptyelement")
         emptyEditElement = emptyEditElement.replaceAll("<br>", "<br />");
         // console.log(replacedVal);
         console.log(emptyEditElement, "-----empty")

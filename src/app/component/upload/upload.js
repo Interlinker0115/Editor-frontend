@@ -73,12 +73,14 @@ const Upload = ({ username }) => {
                 })
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(html.data, 'text/html');
+                console.log(doc, "-----------doc")
                 const MainData = doc.body.innerText || doc.body.textContent
 
                 console.log("html======>", MainData)
                 console.log(typeof MainData, "==========htmlData")
                 const length = MainData
                 console.log(length, "-------ltngth")
+
 
                 const analyResponse = await axios.post("https://osprey-heroic-eagle.ngrok-free.app/documentCheck ", { "content": MainData },
                     {

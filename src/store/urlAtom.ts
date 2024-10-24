@@ -6,4 +6,4 @@ export const htmlDataAtom = atom(null)
 
 export const EditViewAtom = atom(false)
 
-export const credtiAtom = atom(2)
+export const credtiAtom = atom(null)
