@@ -7,6 +7,9 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements } from '@stripe/react-stripe-js'
+import { Suspense } from "react";
+import Loading from "../app/loading"
+
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
@@ -40,6 +43,7 @@ export default function RootLayout({
         <html lang="en">
           <body>
             <JotaiProvider>
+              <Suspense fallback={<Loading />}></Suspense>
               {children}
             </JotaiProvider>
           </body>
