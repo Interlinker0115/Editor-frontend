@@ -2,14 +2,14 @@
 import Image from "next/image"
 import Button from "@mui/material/Button"
 import { useRouter } from "next/navigation";
-import Capture2 from "/public/Capture 2.png"
+import Capture2 from "/public/Capture 2.webp"
 
 const Innovation = () => {
     const router = useRouter();
     return (
         <div className="relative flex flex-col w-full px-[20px] sm:px-[30px] md:px-[30px] 2xl:px-[145px] items-center mb-[30px] md:mb-[73px] h-[667px] md:h-auto " id="innovation">
             <Image
-                src="/Header.png"
+                src="/Header.webp"
                 alt="background"
                 className="w-full h-full -z-10 absolute"
                 fill

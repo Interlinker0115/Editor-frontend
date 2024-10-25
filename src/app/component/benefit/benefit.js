@@ -11,7 +11,7 @@ const Benefit = () => {
                 <div className="w-[100%] h-auto flex flex-col border-black border-solid border rounded-[12px] ">
                     <div className="ml-[30px] mr-[30px] mt-[28px] mb-[20px]">
                         <Image
-                            src="/1.png"
+                            src="/1.webp"
                             alt="background"
                             width={56}
                             height={56}
@@ -27,7 +27,7 @@ const Benefit = () => {
                 <div className="w-[100%] h-auto flex flex-col border-black border-solid border rounded-[12px]">
                     <div className="ml-[30px] mr-[30px] mt-[28px] mb-[20px]">
                         <Image
-                            src="/2.png"
+                            src="/2.webp"
                             alt="background"
                             width={56}
                             height={56}
@@ -43,7 +43,7 @@ const Benefit = () => {
                 <div className="w-[100%] h-auto flex flex-col border-black border-solid border rounded-[12px]">
                     <div className="ml-[30px] mr-[30px] mt-[28px] mb-[20px]">
                         <Image
-                            src="/3.png"
+                            src="/3.webp"
                             alt="background"
                             width={56}
                             height={56}
@@ -59,7 +59,7 @@ const Benefit = () => {
                 <div className="w-[100%] h-auto flex flex-col border-black border-solid border rounded-[12px] ">
                     <div className="ml-[30px] mr-[30px] mt-[28px] mb-[20px]">
                         <Image
-                            src="/4.png"
+                            src="/4.webp"
                             alt="background"
                             width={56}
                             height={56}
@@ -75,7 +75,7 @@ const Benefit = () => {
                 <div className="w-[100%] h-auto flex flex-col border-black border-solid border rounded-[12px]">
                     <div className="ml-[30px] mr-[30px] mt-[28px] mb-[20px]">
                         <Image
-                            src="/5.png"
+                            src="/5.webp"
                             alt="background"
                             width={56}
                             height={56}
@@ -91,7 +91,7 @@ const Benefit = () => {
                 <div className="w-[100%] h-auto flex flex-col border-black border-solid border rounded-[12px]">
                     <div className="ml-[30px] mr-[30px] mt-[28px] mb-[20px]">
                         <Image
-                            src="/6.png"
+                            src="/6.webp"
                             alt="background"
                             width={56}
                             height={56}

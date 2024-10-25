@@ -45,7 +45,7 @@ const Pay = () => {
                 <div className="flex justify-between mt-[20px]">
                     <Link href={"/freeupload"} >
                         <Image
-                            src="/preview.png"
+                            src="/preview.webp"
                             alt="preview"
                             width={26}
                             height={26}
@@ -53,7 +53,7 @@ const Pay = () => {
                     </Link>
                     <Link href={"/"}>
                         <Image
-                            src="/cancel.png"
+                            src="/cancel.webp"
                             alt="cancel"
                             width={25}
                             height={25}
@@ -87,7 +87,7 @@ const Pay = () => {
                         <button className="w-[280px] sm:w-[320px] md:w-[360px] h-[44px] sm:h-[70px] md:h-[78px] bg-[#665cff] rounded-2xl" onClick={handleBuy}>
                             <div className="flex justify-center gap-2 items-center mr-[5px]">
                                 <Image
-                                    src={require("../../../../public/stripe.png")}
+                                    src={require("../../../../public/stripe.webp")}
                                     alt="card"
                                     className="w-[60px] md:w-[64px] h-[60px] md:h-[64px] rounded-full"
                                 />

@@ -43,7 +43,7 @@ const SubHeader = async ({ username }) => {
             <div className="flex relative bg-black items-center justify-between h-[80px] xl:px-[145px] lg:px-[50px] md:px-[40px] sm:px-[30px] px-[10px]">
                 <a className="flex w-[200px] h-[80px] items-center justify-center" href="/#innovation">
                     <Image
-                        src={"/doculogo.png"}
+                        src={"/doculogo.webp"}
                         width={200}
                         height={80}
                         alt="logo"

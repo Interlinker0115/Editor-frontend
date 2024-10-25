@@ -14,7 +14,7 @@ const Step = () => {
             <div className="mt-[30px] md:mt-[50px] xl:mt-[97px] grid xl:grid-cols-3 lg:grid-cols-2 gap-10">
                 <div className="flex flex-col items-center w-full text-center">
                     <Image
-                        src="/s-1.png"
+                        src="/s-1.webp"
                         alt="background"
                         width={380}
                         height={256}
@@ -30,7 +30,7 @@ const Step = () => {
                 </div>
                 <div className="flex flex-col items-center w-full text-center">
                     <Image
-                        src="/s-2.png"
+                        src="/s-2.webp"
                         alt="background"
                         width={380}
                         height={256}
@@ -46,7 +46,7 @@ const Step = () => {
                 </div>
                 <div className="flex flex-col items-center w-full text-center">
                     <Image
-                        src="/s-3.png"
+                        src="/s-3.webp"
                         alt="background"
                         width={380}
                         height={256}
@@ -65,7 +65,7 @@ const Step = () => {
                 <div className="mt-[23px] h-[124px] w-full rounded-[100px] xl:border-[#0D6EFD] border-white border flex justify-around items-center">
                     <div className="absolute xl:block hidden">
                         <Image
-                            src="/l-1.png"
+                            src="/l-1.webp"
                             alt="background"
                             width={850}
                             height={230}

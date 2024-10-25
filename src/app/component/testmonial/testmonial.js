@@ -53,25 +53,25 @@ const Testmonial = () => {
     };
     const data = [
         {
-            avatar: "avatar/1.jpg",
+            avatar: "avatar/1.webp",
             author: "dacey-nolan",
             title: "Transforming Our Trading",
             content: "I recently started using the Copy Trading Python Package, and it has completely transformed my trading experience. The real-time synchronization feature allows me to mirror successful trades effortlessly, significantly boosting my confidence as a trader. The setup process was straightforward, and the documentation provided clear guidance every step of the way. I particularly appreciate the ability to customize my copy ratios,"
         },
         {
-            avatar: "avatar/2.jpg",
+            avatar: "avatar/2.webp",
             author: "davidhellmann",
             title: "Transforming",
             content: "I recently started using the Copy Trading Python Package, and it has completely transformed my trading experience. The real-time synchronization feature allows me to mirror successful trades effortlessly, significantly boosting my confidence as a trader. The setup process was straightforward, and the documentation provided clear guidance every step of the way. I particularly appreciate the ability to customize my copy ratios,"
         },
         {
-            avatar: "avatar/3.jpg",
+            avatar: "avatar/3.webp",
             author: "Hardy",
             title: "Transforming",
             content: "I recently started using the Copy Trading Python Package, and it has completely transformed my trading experience. The real-time synchronization feature allows me to mirror successful trades effortlessly, significantly boosting my confidence as a trader. The setup process was straightforward, and the documentation provided clear guidance every step of the way. I particularly appreciate the ability to customize my copy ratios,"
         },
         {
-            avatar: "avatar/4.jpg",
+            avatar: "avatar/4.webp",
             author: "Anny",
             title: "Transforming",
             content: "I recently started using the Copy Trading Python Package, and it has completely transformed my trading experience. The real-time synchronization feature allows me to mirror successful trades effortlessly, significantly boosting my confidence as a trader. The setup process was straightforward, and the documentation provided clear guidance every step of the way. I particularly appreciate the ability to customize my copy ratios,"

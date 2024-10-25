@@ -123,7 +123,7 @@ const Upload = ({ username }) => {
                             <input id="file" type="file" className=" absolute top-0 lef-0  w-full h-full hidden" onChange={handleChange} onClick={() => { localStorage.setItem('url', ""); }} />
                             <label htmlFor="file">
                                 <Image
-                                    src={require("../../../../public/plus.png")}
+                                    src={require("../../../../public/plus.webp")}
                                     alt="plus"
                                     className=" rounded-full w-[68px] h-[68px]"
                                 /></label>
@@ -138,7 +138,7 @@ const Upload = ({ username }) => {
                         <div className="text-[18px] font-bold">Uploaded File:<span className="text-[#0D6EFD] ml-[5px]">{filename}</span> </div>
                         <button onClick={() => handleRemoveFile(files.indexOf(files.find(file => file.name === filename)))}>
                             <Image
-                                src="/remove.png"
+                                src="/remove.webp"
                                 width={32}
                                 height={32}
                                 alt="remove"
@@ -146,7 +146,7 @@ const Upload = ({ username }) => {
                         </button>
                         <button onClick={handleConfirm}>
                             <Image
-                                src="/confirm.png"
+                                src="/confirm.webp"
                                 width={30}
                                 height={30}
                                 alt="remove"
