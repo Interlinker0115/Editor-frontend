@@ -73,13 +73,13 @@ const Pay = () => {
                             <div className="text-[16px] sm:text-[18px] md:text-[20px] font-bold text-black ">Review payment Amount </div>
                             <div className="flex justify-around mt-[20px]">
                                 <div className="text-[16px] md:text-[20px] text-black text-opacity-60">For <span className="text-black text-[18px] md:text-[18px] font-bold">{value}</span> credits</div>
-                                <div className="text-[20px] md:text-[24px] text-black text-opacity-60">$12/Month</div>
+                                <div className="text-[20px] md:text-[24px] text-black text-opacity-60">$0.2</div>
                             </div>
                             <div className="w-[90%] h-[3px] bg-black float-end"></div>
 
                             <div className="flex justify-around mt-[5px]">
                                 <div className="text-[24px] md:text-[28px] text-black font-bold">Total</div>
-                                <div className="text-[24px] md:text-[28px] text-black font-bold">${value * 20} USD</div>
+                                <div className="text-[24px] md:text-[28px] text-black font-bold">${value / 5} USD</div>
                             </div>
                         </div>
                     </div>
