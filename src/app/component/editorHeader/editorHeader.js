@@ -2,12 +2,10 @@
 import Button from "@mui/material/Button"
 import { useEffect, useState } from "react"
 import Image from "next/image"
-// import "./header.css"
 import { useRouter } from "next/navigation"
 import { useAtom } from "jotai"
 import { credtiAtom } from "@/store"
-import axios from "axios"
-const EditorHeader = async ({ username }) => {
+const EditorHeader = ({ username }) => {
     const router = useRouter();
     const [show, setShow] = useState(false)
     const [animation, setAnimation] = useState(true)
@@ -36,11 +34,6 @@ const EditorHeader = async ({ username }) => {
                         alt="logo"
                     />
                 </a>
-                {/* <div className="flex justify-center items-center gap-4">
-                    <div className="hidden lg:block">
-                        <Button variant="contained" sx={{ borderRadius: "100px", backgroundColor: "#0D6EFD", color: "white", width: "154px", height: "54px" }} onClick={() => router.push("/payment/pay")}>buy credit</Button>
-                    </div>
-                </div> */}
                 <div className="block lg:hidden text-white text-[30px] font-bold" onClick={() => setShow(!show)}>
                     {show ? "X" : "☰"}
                 </div>
