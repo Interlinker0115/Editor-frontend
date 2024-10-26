@@ -7,11 +7,11 @@ import { useRouter } from "next/navigation"
 import { useAtom } from "jotai"
 import { credtiAtom } from "@/store"
 import axios from "axios"
-const SubHeader = async ({ username }) => {
-    const router = useRouter();
+const SubHeader = ({ username }) => {
     const [show, setShow] = useState(false)
     const [animation, setAnimation] = useState(true)
     const [credit, setCredit] = useAtom(credtiAtom)
+    const router = useRouter();
 
     useEffect(() => {
         window.scrollTo(0, 0);
