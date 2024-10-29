@@ -27,14 +27,14 @@ const Header = () => {
     return (
         <div className="top-0 w-full  ">
             <div className="flex relative bg-black items-center justify-between h-[80px] xl:px-[145px] lg:px-[50px] md:px-[40px] sm:px-[30px] px-[10px]">
-                <div className="flex w-[200px] h-[80px] items-center justify-center">
+                <a className="flex w-[200px] h-[80px] items-center justify-center" href="/#innovation">
                     <Image
                         src={"/doculogo.webp"}
                         width={200}
                         height={80}
                         alt="logo"
                     />
-                </div>
+                </a>
                 <div className="hidden lg:block">
                     <div className="flex gap-16">
                         <a href="/#innovation" className="text-white font-bold text-[18px] hover:text-[#0D6EFD] hover: cursor-pointer">Home</a>
